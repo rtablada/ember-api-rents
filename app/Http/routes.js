@@ -30,6 +30,9 @@ Route.any('/', function * (request, response) {
   });
 });
 
+Route.resource('/api/rentals', 'RentalController').except(['create', 'edit']);
+
+
 const User = use('App/Model/User');
 Route.get('/users', function * (request, response) {
   const users = yield User.all();
